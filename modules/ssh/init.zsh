@@ -6,9 +6,9 @@
 #
 
 # Return if requirements are not found.
-if [[ "$OSTYPE" == darwin* ]] || (( ! $+commands[ssh-agent] )); then
-  return 1
-fi
+#if [[ "$OSTYPE" == darwin* ]] || (( ! $+commands[ssh-agent] )); then
+#  return 1
+#fi
 
 # Set the path to the SSH directory.
 _ssh_dir="$HOME/.ssh"
