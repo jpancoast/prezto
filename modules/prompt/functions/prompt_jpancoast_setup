@@ -71,7 +71,7 @@ function prompt_jpancoast_setup {
   local action_format="(${_prompt_jpancoast_colors[5]}%a%f)"
   local unstaged_format="${_prompt_jpancoast_colors[2]}●%f"
 #  local staged_format="${_prompt_jpancoast_colors[5]}●%f"
-  local staged_format="${_prompt_jpancoast_colors[2]}●%f"
+  local staged_format="${_prompt_jpancoast_colors[2]}√%f"
 
   # Set vcs_info parameters.
   zstyle ':vcs_info:*' enable bzr git hg svn
