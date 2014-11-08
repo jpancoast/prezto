@@ -75,7 +75,7 @@ function prompt_jpancoast_setup {
   local to_push="${_prompt_jpancoast_colors[2]}√%a"
 
   # Set vcs_info parameters.
-  zstyle ':vcs_info:*' enable bzr git hg svn
+  zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*:prompt:*' check-for-changes true
   zstyle ':vcs_info:*:prompt:*' unstagedstr "${unstaged_format}"
   zstyle ':vcs_info:*:prompt:*' stagedstr "${staged_format}"
@@ -88,7 +88,7 @@ function prompt_jpancoast_setup {
 
   # Define prompts.
   PROMPT="${_prompt_jpancoast_colors[3]}%n%f at ${_prompt_jpancoast_colors[2]}%m%f in ${_prompt_jpancoast_colors[5]}%~%f "'${vcs_info_msg_0_}'" "'$python_info[virtualenv]'"$ "
-  RPROMPT=''
+  RPROMPT='TEMP'
 }
 
 prompt_jpancoast_setup "$@"
