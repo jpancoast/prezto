@@ -70,7 +70,7 @@ function prompt_jpancoast_setup {
   local branch_format="(${_prompt_jpancoast_colors[1]}%b%f%u%c)"
   local action_format="(${_prompt_jpancoast_colors[5]}%a%f)"
   local unstaged_format="${_prompt_jpancoast_colors[2]}●%f"
-  local staged_format="${_prompt_jpancoast_colors[5]}●%f"
+  local staged_format="${_prompt_jpancoast_colors[5]}●%f" #files added, but not commited
 #  local staged_format="${_prompt_jpancoast_colors[2]}√%c"
 
   # Set vcs_info parameters.
