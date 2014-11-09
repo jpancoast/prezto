@@ -77,6 +77,8 @@ function prompt_jpancoast_setup {
     )
   fi
 
+  
+  zstyle ':vcs_info:git*+set-message:*' hooks git-st
   # Formats:
   #   %b - branchname
   #   %u - unstagedstr (see below)
@@ -92,16 +94,16 @@ function prompt_jpancoast_setup {
 #  local to_push="${_prompt_jpancoast_colors[2]}√%m"
 
   zstyle ':vcs_info:*+*:*' debug true
+
   # Set vcs_info parameters.
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*:prompt:*' check-for-changes true
   zstyle ':vcs_info:*:prompt:*' unstagedstr "${unstaged_format}"
   zstyle ':vcs_info:*:prompt:*' stagedstr "${staged_format}"
-  zstyle ':vcs_info:*:prompt:*' actionformats "${branch_format}${action_format}action"
-  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}brahcn"
+  zstyle ':vcs_info:*:prompt:*' actionformats "${branch_format}${action_format}"
+  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
-  zstyle ':vcs_info:git*+set-message:*' hooks git-st
 #  zstyle ':prezto:module:git:info:ahead' format '⬆'
 
   # Set python-info parameters.
