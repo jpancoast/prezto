@@ -98,7 +98,7 @@ function prompt_jpancoast_setup {
   zstyle ':vcs_info:*:prompt:*' unstagedstr "${unstaged_format}"
   zstyle ':vcs_info:*:prompt:*' stagedstr "${staged_format}"
   zstyle ':vcs_info:*:prompt:*' actionformats "${branch_format}${action_format}"
-  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}${to_push}"
+  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}%m"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
   zstyle ':vcs_info:git*+set-message:*' hooks git-st
