@@ -89,15 +89,16 @@ function prompt_jpancoast_setup {
   local unstaged_format="${_prompt_jpancoast_colors[2]}●%f"
   local staged_format="${_prompt_jpancoast_colors[5]}●%f" #files added, but not commited
 #  local staged_format="${_prompt_jpancoast_colors[2]}√%c"
-#  local to_push="${_prompt_jpancoast_colors[2]}√%a"
+  local to_push="${_prompt_jpancoast_colors[2]}√%m"
 
+  zstyle ':vcs_info:*+*:*' debug true
   # Set vcs_info parameters.
   zstyle ':vcs_info:*' enable git
   zstyle ':vcs_info:*:prompt:*' check-for-changes true
   zstyle ':vcs_info:*:prompt:*' unstagedstr "${unstaged_format}"
   zstyle ':vcs_info:*:prompt:*' stagedstr "${staged_format}"
   zstyle ':vcs_info:*:prompt:*' actionformats "${branch_format}${action_format}"
-  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
+  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}${to_push}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
   zstyle ':vcs_info:git*+set-message:*' hooks git-st
