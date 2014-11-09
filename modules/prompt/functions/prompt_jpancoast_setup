@@ -1,7 +1,10 @@
 #
 # A theme based on Steve Losh's Extravagant Prompt with vcs_info integration.
 #
-# Authors:
+# Modifications by:
+#   James Pancoast <jpancoast@gmail.com>
+# 
+# Based on work by:
 #   Steve Losh <steve@stevelosh.com>
 #   Bart Trojanowski <bart@jukie.net>
 #   Brian Carper <brian@carper.ca>
