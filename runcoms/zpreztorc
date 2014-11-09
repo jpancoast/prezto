@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'utility' \
   'ssh' \
+  'node.js' \
   'completion' \
   'macports' \
   'osx' \
