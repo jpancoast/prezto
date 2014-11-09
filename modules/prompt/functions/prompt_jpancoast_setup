@@ -77,7 +77,7 @@ function prompt_jpancoast_setup {
     )
   fi
 
-  
+
   zstyle ':vcs_info:git*+set-message:*' hooks git-st
   # Formats:
   #   %b - branchname
@@ -93,6 +93,7 @@ function prompt_jpancoast_setup {
 #  local staged_format="${_prompt_jpancoast_colors[2]}√%c"
 #  local to_push="${_prompt_jpancoast_colors[2]}√%m"
 
+
   zstyle ':vcs_info:*+*:*' debug true
 
   # Set vcs_info parameters.
@@ -101,7 +102,12 @@ function prompt_jpancoast_setup {
   zstyle ':vcs_info:*:prompt:*' unstagedstr "${unstaged_format}"
   zstyle ':vcs_info:*:prompt:*' stagedstr "${staged_format}"
   zstyle ':vcs_info:*:prompt:*' actionformats "${branch_format}${action_format}"
-  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
+
+
+  local prompt_vcs_branch='%m%B%c%u%%b%b'
+  zstyle ':vcs_info:*' formats "$prompt_vcs_branch "
+
+#  zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
 #  zstyle ':prezto:module:git:info:ahead' format '⬆'
