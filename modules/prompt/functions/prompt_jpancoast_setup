@@ -15,9 +15,9 @@
 function prompt_jpancoast_precmd {
   # Check for untracked files or updated submodules since vcs_info does not.
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    branch_format="(${_prompt_jpancoast_colors[1]}%b%f%u%c${_prompt_jpancoast_colors[4]}●%f)"
+    branch_format="(${_prompt_jpancoast_colors[1]}%b%f%c%u${_prompt_jpancoast_colors[4]}●%f)"
   else
-    branch_format="(${_prompt_jpancoast_colors[1]}%b%f%u%c)"
+    branch_format="(${_prompt_jpancoast_colors[1]}%b%f%c%u)"
   fi
 
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
@@ -36,19 +36,21 @@ function +vi-git-st() {
     # for git prior to 1.7
     # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
     ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-    (( $ahead )) && gitstatus+=( "+${ahead}" )
+#    (( $ahead )) && gitstatus+=( "+${ahead}" )
+    (( $ahead )) && gitstatus+=( "⬆" )
 
-    echo $ahead
+#    echo $ahead
 
     # for git prior to 1.7
     # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
     (( $behind )) && gitstatus+=( "-${behind}" )
 
-    hook_com[misc]+=${(j:/:)gitstatus}
+##  zstyle ':prezto:module:git:info:ahead' format '⬆' %F{yellow}
+#    hook_com[misc]+=${(j:/:)gitstatus}
+    hook_com[branch]="${hook_com[branch]} %F{yellow}${remote}${(j:/:)gitstatus} "
 
-
-    echo $hook_com[misc]
+#    echo $hook_com[branch]
 }
 
 function prompt_jpancoast_setup {
@@ -84,8 +86,8 @@ function prompt_jpancoast_setup {
 
   
   zstyle ':vcs_info:*+*:*' debug false
-  zstyle ':vcs_info:git*+set-message:*' hooks git-st
 
+  zstyle ':vcs_info:git*+set-message:*' hooks git-st
 
   # Formats:
   #   %b - branchname
@@ -94,12 +96,11 @@ function prompt_jpancoast_setup {
   #   %a - action (e.g. rebase-i)
   #   %R - repository path
   #   %S - path in the repository
-  local branch_format="(${_prompt_jpancoast_colors[1]}%b%f%u%c%M)"
+  local branch_format="(${_prompt_jpancoast_colors[1]}%b%f%c%u)"
   local action_format="(${_prompt_jpancoast_colors[5]}%a%f)"
-  local unstaged_format="${_prompt_jpancoast_colors[2]}●%f"
+#⚡  local unstaged_format="${_prompt_jpancoast_colors[2]}●%f "
+  local unstaged_format="${_prompt_jpancoast_colors[4]}⚡%f "
   local staged_format="${_prompt_jpancoast_colors[5]}●%f" #files added, but not commited
-#  local staged_format="${_prompt_jpancoast_colors[2]}√%c"
-#  local to_push="${_prompt_jpancoast_colors[2]}√%m"
 
 
   # Set vcs_info parameters.
@@ -111,7 +112,7 @@ function prompt_jpancoast_setup {
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
-#  zstyle ':prezto:module:git:info:ahead' format '⬆'
+
 
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
