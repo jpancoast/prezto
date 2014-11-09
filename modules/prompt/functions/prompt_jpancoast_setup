@@ -78,7 +78,7 @@ function prompt_jpancoast_setup {
   fi
 
   
-  zstyle ':vcs_info:*+*:*' debug true
+  zstyle ':vcs_info:*+*:*' debug false
   zstyle ':vcs_info:git*+set-message:*' hooks git-st
 
 
