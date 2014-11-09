@@ -39,13 +39,16 @@ function +vi-git-st() {
     (( $ahead )) && gitstatus+=( "+${ahead}" )
 
     echo $ahead
+
     # for git prior to 1.7
     # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
     (( $behind )) && gitstatus+=( "-${behind}" )
 
-#    hook_com[misc]+=${(j:/:)gitstatus}
-    hook_com[action]+=${(j:/:)gitstatus}
+    hook_com[misc]+=${(j:/:)gitstatus}
+
+
+    echo $hook_com[misc]
 }
 
 function prompt_jpancoast_setup {
@@ -91,7 +94,7 @@ function prompt_jpancoast_setup {
   #   %a - action (e.g. rebase-i)
   #   %R - repository path
   #   %S - path in the repository
-  local branch_format="(${_prompt_jpancoast_colors[1]}%b%f%u%c)"
+  local branch_format="(${_prompt_jpancoast_colors[1]}%b%f%u%c%M)"
   local action_format="(${_prompt_jpancoast_colors[5]}%a%f)"
   local unstaged_format="${_prompt_jpancoast_colors[2]}●%f"
   local staged_format="${_prompt_jpancoast_colors[5]}●%f" #files added, but not commited
@@ -112,6 +115,8 @@ function prompt_jpancoast_setup {
 
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
+
+#jpancoast at taanab in ~/.zprezto (master●) taanab $
 
   # Define prompts.
   PROMPT="${_prompt_jpancoast_colors[3]}%n%f at ${_prompt_jpancoast_colors[2]}%m%f in ${_prompt_jpancoast_colors[5]}%~%f "'${vcs_info_msg_0_}'" "'$python_info[virtualenv]'"$ "
