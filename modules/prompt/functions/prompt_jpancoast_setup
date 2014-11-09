@@ -43,7 +43,7 @@ function +vi-git-st() {
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
     (( $behind )) && gitstatus+=( "↓" )
 
-    hook_com[branch]="${hook_com[branch]}%F{yellow}${remote}${(j:/:)gitstatus} "
+    hook_com[branch]="${hook_com[branch]}%F{yellow}${remote}${(j:/:)gitstatus}"
 }
 
 function prompt_jpancoast_setup {
@@ -91,7 +91,7 @@ function prompt_jpancoast_setup {
   #   %S - path in the repository
   local branch_format="(${_prompt_jpancoast_colors[1]}%b%f%c%u"
   local action_format="(${_prompt_jpancoast_colors[5]}%a%f)"
-  local unstaged_format="${_prompt_jpancoast_colors[4]}⚡%f "
+  local unstaged_format="${_prompt_jpancoast_colors[4]}⚡%f"
   local staged_format="${_prompt_jpancoast_colors[5]}●%f" #files added, but not commited
 
 
