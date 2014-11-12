@@ -91,4 +91,4 @@ bindkey -M viins ' ' magic-space
 
 export GOPATH="/usr/local/go"
 
-precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+precmd () {print -Pn "\e]0;%n: %~\a"}
