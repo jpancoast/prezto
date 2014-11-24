@@ -93,3 +93,8 @@ export GOROOT="/usr/local/go"
 export GOPATH="$GOROOT/bin"
 
 precmd () {print -Pn "\e]0;%~\a"}
+
+#ssh-add ~/.ssh/id_dsa
+#ssh-add ~/.ssh/id_rsa_charterdev
+#ssh-add ~/.ssh/id_rsa_charterengprod
+#ssh-add ~/.ssh/id_rsa_devscratch
