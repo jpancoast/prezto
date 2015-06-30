@@ -98,3 +98,4 @@ ssh-add ~/.ssh/id_dsa
 ssh-add ~/.ssh/id_rsa_charterdev
 ssh-add ~/.ssh/id_rsa_charterengprod
 ssh-add ~/.ssh/id_rsa_devscratch
+ssh-add ~/.ssh/id_rsa_jpancoast_kenzan
