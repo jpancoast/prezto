@@ -121,7 +121,7 @@ zstyle ':prezto:module:prompt' theme 'jpancoast'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_dsa' 'id_rsa_charterdev' 'id_rsa_charterengprod' 'id_rsa_devscratch' 'id_rsa_jpancoast_kenzan' 'vault.pem' 'tr-scratch.pem'
+zstyle ':prezto:module:ssh:load' identities 'id_dsa' 'id_rsa_charterdev' 'id_rsa_charterengprod' 'id_rsa_devscratch' 'id_rsa_jpancoast_kenzan' 'vault.pem' 'tr-scratch.pem' 'id_rsa_jpancoast_kenzan_spinnaker.pem'
 
 #
 # Syntax Highlighting
