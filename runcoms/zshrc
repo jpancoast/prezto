@@ -10,6 +10,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+source <(kubectl completion zsh)
+
 # Customize to your needs...
 
 source ~/.aliases
@@ -90,22 +92,13 @@ bindkey -M vicmd "q" push-line
 # it's like, space AND completion.  Gnarlbot.
 bindkey -M viins ' ' magic-space
 
-#export GOROOT="/usr/local/go"
-#export GOPATH="$GOROOT/bin"
-export GOROOT="/opt/local/lib/go"
-export GOPATH=/Users/jpancoast/Stuff/go/
-export GRADLE_HOME=/opt/local/share/java/gradle
-
 plugins=(git ssh-agent)
 
 precmd () {print -Pn "\e]0;%~\a"}
  
-#zstyle :omz:plugins:ssh-agent identities id_dsa id_rsa_charterdev id_rsa_charterengprod id_rsa_devscratch id_rsa_jpancoast_kenzan id_rsa_jpancoast_pci_dev
+export GOROOT="/opt/local/lib/go"
+export GOPATH=/Users/jpancoast/Stuff/go/
+export GRADLE_HOME=/opt/local/share/java/gradle
 
-
-#ssh-add ~/.ssh/id_dsa
-#ssh-add ~/.ssh/id_rsa_charterdev
-#ssh-add ~/.ssh/id_rsa_charterengprod
-#ssh-add ~/.ssh/id_rsa_devscratch
-#ssh-add ~/.ssh/id_rsa_jpancoast_kenzan
-#ssh-add ~/.ssh/id_rsa_jpancoast_pci_dev
+fpath=(/usr/local/share/zsh-completions $fpath)
+export PATH="$PATH:/usr/local/sbin"
