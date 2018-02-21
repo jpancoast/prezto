@@ -83,17 +83,6 @@ function prompt_paradox_precmd {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
 
-<<<<<<< HEAD
-  # Get Git repository information.
-  if (( $+functions[git-info] )); then
-    git_status=git-info
-  fi
-  timer_result=$(($SECONDS-$start_time))
-  if [[ $timer_result -gt 10 ]]; then
-    calc_elapsed_time
-  fi
-  start_time=$SECONDS
-=======
   # Format PWD.
   _prompt_paradox_pwd=$(prompt-pwd)
 
@@ -113,7 +102,6 @@ function prompt_paradox_precmd {
 
 function prompt_paradox_preexec {
   _prompt_paradox_start_time="$SECONDS"
->>>>>>> upstream/master
 }
 
 function prompt_paradox_setup {
